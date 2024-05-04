@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Agreement</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            border: 1px solid #ccc;
+            width: calc(100% - 20px);
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .signature:focus {
+            border-color: #007bff;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn:active {
+            background-color: #004499;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Agreement</h2>
+        <p>I, <span id="userName"></span>, hereby acknowledge that I have read and understood the terms of this agreement.</p>
+        <p>I understand that this website is not responsible for any consequences or outcomes resulting from my use of its services.</p>
+        <p>I agree to abide by the terms and conditions outlined in this agreement.</p>
+        <input type="text" id="signature" class="signature" placeholder="Type your full name to sign">
+        <button onclick="signAgreement()" class="btn">Sign Agreement</button>
+        <button onclick="continueToNextPage()" class="btn" id="continueBtn" style="display: none;">Continue</button>
+    </div>
+
+    <script>
+        function signAgreement() {
+            var signature = document.getElementById("signature").value;
+            if (signature.trim() === "") {
+                alert("Please type your full name to sign the agreement.");
+            } else {
+                document.getElementById("userName").innerText = signature;
+                alert("Thank you for signing the agreement, " + signature + "!");
+                document.getElementById("continueBtn").style.display = "block";
+                // You can add further actions here, such as sending the signed agreement to a server.
+            }
+        }
+
+        function continueToNextPage() {
+            alert("Redirecting to the next page...");
+            // Add your redirection logic here
+        }
+    </script>
+</body>
+</html>
